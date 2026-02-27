@@ -1,12 +1,13 @@
 pipeline {
   agent any
-  stages {
-    stage('Run Ansible') {
-      steps {
-        sshagent(['VE']) {
+  stage('Run Ansible') {
+    agent {
+        docker { image 'willhallonline/ansible:latest' } 
+    }
+    steps {
+        sshagent(['ubuntu (VE)']) {
             sh 'ansible-playbook -i hosts p1.yaml'
         }
-      }
     }
-  }
+}
 }
