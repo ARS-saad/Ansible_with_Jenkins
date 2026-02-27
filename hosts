@@ -1,1 +1,1 @@
-10.150.82.242 ansible_user=ubuntu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+10.150.82.242 ansible_user=ubuntu ansible_ssh_common_args=\'-o StrictHostKeyChecking=no\'
