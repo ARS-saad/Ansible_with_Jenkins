@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Run Ansible') {
       steps {
-        sshagent(['ubuntu (VE)']) {
+        sshagent(['VE']) {
             sh 'ansible-playbook -i hosts p1.yaml'
         }
       }
