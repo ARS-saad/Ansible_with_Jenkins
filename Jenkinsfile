@@ -1,13 +1,19 @@
 pipeline {
   agent any
-  stage('Run Ansible') {
-    agent {
-        docker { image 'willhallonline/ansible:latest' } 
+  stages {
+    stage('Checkout') {
+      steps {
+        //git 'https://github.com/devopssteps/day26.git'
+        echo 'test'
+      }
     }
-    steps {
-        sshagent(['ubuntu (VE)']) {
+    stage('Run Ansible') {
+      steps {
+        sshagent(['VE']) {
             sh 'ansible-playbook -i hosts p1.yaml'
-        }
+            //sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.221.103.118 "echo Connected from Jenkins!"'
+        }  
+      }
     }
-}
+  }
 }
