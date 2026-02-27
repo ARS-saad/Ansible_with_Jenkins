@@ -11,7 +11,7 @@ pipeline {
       steps {
         sshagent(['VE']) {
             sshagent(['VE2']) {
-              sh '''ansible-playbook -i hosts p1.yaml'''
+              sh 'ansible-playbook -i hosts p1.yaml'
               //sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.221.103.118 "echo Connected from Jenkins!"'
         } 
         }  
